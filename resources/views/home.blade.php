@@ -6,7 +6,8 @@
 <!-- ======= Hero Section ======= -->
 <section id="hero" class="d-flex align-items-center">
     <div class="container">
-        <h1 style="color: white;">Haloo</h1>
+       
+        <h1 style="color: rgb(255, 255, 255);">DOKTER GIGI HADI</h1>
         <h2 style="color: white;">Selamat Datang</h2>
 
         <a href="/antrian" class="btn-get-started scrollto">Ambil Antrian</a>
