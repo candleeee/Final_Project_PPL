@@ -1,4 +1,3 @@
-
 <!-- Modal -->
 <div wire:ignore.self class="modal fade" id="panggilAntrian" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">

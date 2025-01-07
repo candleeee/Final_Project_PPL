@@ -1,9 +1,8 @@
 @extends('dashboard.layouts.main')
 
 @section('content')
-
-    <div >
-        <livewire:dashboard.daftar-poli.dashboard-poli-tht>
+    <div>
+        <livewire:dashboard.daftar-poli.dashboard-poli-pencegahan>
     </div>
 @endsection
 

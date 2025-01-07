@@ -83,13 +83,14 @@
                 <div class="mb-3">
                     <select class="form-select" wire:model="poli">
                         <option value="">Sortir Berdasarkan Poli</option>
-                        <option value="umum">Poli Umum</option>
-                        <option value="gigi">Poli Gigi</option>
-                        <option value="tht">Poli THT</option>
-                        <option value="lansia & disabilitas">Lansia & Disabilitas</option>
-                        <option value="balita">Balita</option>
-                        <option value="kia & kb">KIA & KB</option>
-                        <option value="nifas/pnc">Nifas / PNC</option>
+                        <option value="umum">Poli Pengecekan</option>
+                        <option value="umum">Poli Restoratifi</option>
+                        <option value="umum">Poli Endodontik</option>
+                        <option value="umum">Poli Periodontal</option>
+                        <option value="umum">Poli Prostodonik</option>
+                        <option value="umum">Poli Estetika Gigi</option>
+                        <option value="umum">Poli Gigi Sensitif</option>
+
                     </select>
                 </div>
             </div>

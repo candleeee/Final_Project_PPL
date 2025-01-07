@@ -12,22 +12,22 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        $poliUmum   = Antrian::where('poli', 'umum')->where('is_call', false)->count();
-        $poliGigi   = Antrian::where('poli', 'gigi')->where('is_call', false)->count();
-        $poliTht    = Antrian::where('poli', 'tht')->where('is_call', false)->count();
-        $polLansia  = Antrian::where('poli', 'lansia & disabilitas')->where('is_call', false)->count();
-        $poliBalita = Antrian::where('poli', 'balita')->where('is_call', false)->count();
-        $poliKia    = Antrian::where('poli', 'kia & kb')->where('is_call', false)->count();
-        $poliNifas  = Antrian::where('poli', 'nifas/pnc')->where('is_call', false)->count();
+        $poliPencegahan               = Antrian::where('poli', 'pencegahan')->where('is_call', false)->count();
+        $poliRestoratifi           = Antrian::where('poli', 'restoratifi')->where('is_call', false)->count();
+        $poliEndodontik            = Antrian::where('poli', 'endodontik')->where('is_call', false)->count();
+        $poliPeriodontal           = Antrian::where('poli', 'periodontal')->where('is_call', false)->count();
+        $poliProstodontik          = Antrian::where('poli', 'prostodontik')->where('is_call', false)->count();
+        $poliEstetikaGigi          = Antrian::where('poli', 'estetikagigi')->where('is_call', false)->count();
+        $poliGigiSensitif          = Antrian::where('poli', 'gigisensitif')->where('is_call', false)->count();
 
         return view('dashboard.index', [
-            'poliUmum'      => $poliUmum,
-            'poliGigi'      => $poliGigi,
-            'poliTht'       => $poliTht,
-            'poliLansia'    => $polLansia,
-            'poliBalita'    => $poliBalita,
-            'poliKia'       => $poliKia,
-            'poliNifas'     => $poliNifas,
+            'poliPencegahan'            => $poliPencegahan,
+            'poliRestoratifi'           => $poliRestoratifi,
+            'poliEndodontik'            => $poliEndodontik,
+            'poliPeriodontal'           => $poliPeriodontal,
+            'poliProstodontik'          => $poliProstodontik,
+            'poliEstetikaGigi'          => $poliEstetikaGigi,
+            'poliGigiSensitif'          => $poliGigiSensitif,
         ]);
     }
 }

@@ -2,7 +2,7 @@
     <div class="container">
         <div class="card mt-3" style="height: 550px">
             <div class="card-body">
-                <div class="card-title">Daftar Antrian Poli KIA & KB</div>
+                <div class="card-title">Poli Pencegahan</div>
 
                 @if (session()->has('success'))
                     <div class="alert alert-success alert-dismissible fade show" role="alert"> {{ session('success') }}
@@ -26,7 +26,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($poliKia as $list)
+                                    @foreach ($poliBalita as $list)
                                         <tr style="text-align: center">
                                             <td>{{ $list->no_antrian }}</td>
                                             <td>{{ $list->nama }}</td>
@@ -44,7 +44,7 @@
                                     @endforeach
                                 </tbody>
                             </table>
-                            {{ $poliKia->links() }}
+                            {{ $poliPencegahan->links() }}
                         </div>
                     </div>
                 </div>

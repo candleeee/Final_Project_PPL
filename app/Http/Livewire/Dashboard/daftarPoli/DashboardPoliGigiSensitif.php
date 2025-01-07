@@ -6,17 +6,19 @@ use App\Models\Antrian;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-class DashboardPoliGigi extends Component
+class DashboardPoliGigiSensitif extends Component
 {
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
 
     public $antrian_id;
 
+
     public function panggilAntrian($antrian_id)
     {
         $this->antrian_id = $antrian_id;
     }
+
 
     public function updatePanggilan()
     {
@@ -26,10 +28,11 @@ class DashboardPoliGigi extends Component
         $this->dispatchBrowserEvent('closeModal');
     }
 
+
     public function render()
     {
-        return view('livewire.dashboard.daftar-poli.dashboard-poli-gigi', [
-            'poliGigi' => Antrian::where('poli', 'gigi')->where('is_call', 0)->paginate(10)
+        return view('livewire.dashboard.daftar-poli.dashboard-poli-gigisensitif', [
+            'poliGigiSensitif' => Antrian::where('poli', 'gigisensitif')->where('is_call', 0)->paginate(10)
         ]);
     }
 }

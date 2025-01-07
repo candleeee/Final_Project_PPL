@@ -2,7 +2,7 @@
     <div class="container">
         <div class="card mt-3" style="height: 550px">
             <div class="card-body">
-                <div class="card-title">Daftar Antrian Poli Balita</div>
+                <div class="card-title">Poli Periodontal</div>
 
                 @if (session()->has('success'))
                     <div class="alert alert-success alert-dismissible fade show" role="alert"> {{ session('success') }}
@@ -44,7 +44,7 @@
                                     @endforeach
                                 </tbody>
                             </table>
-                            {{ $poliBalita->links() }}
+                            {{ $poliPeriodontal->links() }}
                         </div>
                     </div>
                 </div>
