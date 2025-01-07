@@ -6,38 +6,38 @@ use Illuminate\Http\Request;
 
 class DashboardAntrianController extends Controller
 {
-    public function indexPoliUmum()
+    public function indexPoliPencegahan()
     {
-        return view('dashboard.antrian.poliUmum');
+        return view('dashboard.antrian.polipencegahan');
     }
 
-    public function indexPoliGigi()
+    public function indexPoliRestoratifi()
     {
-        return view('dashboard.antrian.poliGigi');
+        return view('dashboard.antrian.poliRestoratifi');
     }
 
-    public function indexPoliTht()
+    public function indexPoliEndodontik()
     {
-        return view('dashboard.antrian.poliTht');
+        return view('dashboard.antrian.poliEndodontik');
     }
 
-    public function indexPoliLansia()
+    public function indexPoliPeriodontal()
     {
-        return view('dashboard.antrian.poliLansia');
+        return view('dashboard.antrian.poliPeriodontal');
     }
 
-    public function indexPoliBalita()
+    public function indexPoliProstodontik()
     {
-        return view('dashboard.antrian.poliBalita');
+        return view('dashboard.antrian.poliProstodontik');
     }
 
-    public function indexPoliKia()
+    public function indexPoliEstetikaGigi()
     {
-        return view('dashboard.antrian.PoliKia');
+        return view('dashboard.antrian.poliEstetikaGigi');
     }
 
-    public function indexPoliNifas()
+    public function indexPoliGigiSensitif()
     {
-        return view('dashboard.antrian.poliNifas');
+        return view('dashboard.antrian.poliGigiSensitif');
     }
 }

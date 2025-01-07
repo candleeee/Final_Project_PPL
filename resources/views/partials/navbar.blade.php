@@ -2,8 +2,8 @@
 <div id="topbar" class="d-flex align-items-center fixed-top">
     <div class="container d-flex justify-content-between">
         <div class="contact-info d-flex align-items-center">
-            <i class="bi bi-envelope"></i> <a href="mailto:contact@example.com">Alshiel@gmail.com</a>
-            <i class="bi bi-phone"></i> +62 85270995710
+            <i class="bi bi-envelope"></i> <a href="mailto:contact@example.com">dokterhadi@gmail.com</a>
+            <i class="bi bi-phone"></i> 0813-5784-0044
         </div>
     </div>
 </div>
@@ -14,7 +14,7 @@
         <h1 class="logo me-auto">
             <a href="/">
                 <img src="{{ asset('/assetsDashboard/img/fotoppl.jpg') }}" alt="Alshiel Hospital" style="height: 500px; width: 50px; margin-right: 20px;">
-                Alshiel Hospital
+                Klinik Dokter Gigi
             </a>
         </h1>
 
@@ -22,6 +22,7 @@
             <ul>
                 <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
                 <li><a class="nav-link scrollto" href="/antrian">Antrian</a></li>
+                <li><a class="nav-link scrollto" href="/#dokter">Jadwal Praktek</a></li>
                 <li><a class="nav-link scrollto" href="/#contact">Contact</a></li>
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>

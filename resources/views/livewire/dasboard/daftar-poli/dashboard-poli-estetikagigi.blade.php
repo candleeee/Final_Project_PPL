@@ -2,7 +2,7 @@
     <div class="container">
         <div class="card mt-3" style="height: 550px">
             <div class="card-body">
-                <div class="card-title">Daftar Antrian Poli Balita</div>
+                <div class="card-title">Poli Estetika Gigi</div>
 
                 @if (session()->has('success'))
                     <div class="alert alert-success alert-dismissible fade show" role="alert"> {{ session('success') }}
@@ -22,11 +22,12 @@
                                         <th scope="col">Jenis Kelamin</th>
                                         <th scope="col">Nomor HP</th>
                                         <th scope="col">Nomor KTP</th>
+                                        <th scope="col">Layanan</th>
                                         <th scope="col">Panggil</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($poliBalita as $list)
+                                    @foreach ($poliEstetikaGigi as $list)
                                         <tr style="text-align: center">
                                             <td>{{ $list->no_antrian }}</td>
                                             <td>{{ $list->nama }}</td>
@@ -34,6 +35,7 @@
                                             <td>{{ $list->jenis_kelamin }}</td>
                                             <td>{{ $list->no_hp }}</td>
                                             <td>{{ $list->no_ktp }}</td>
+                                            <td>{{ $list->layanan }}</td>
                                             <td>
                                                 <a class="btn btn-success"
                                                     wire:click="panggilAntrian({{ $list->id }})" role="button"
@@ -44,12 +46,12 @@
                                     @endforeach
                                 </tbody>
                             </table>
-                            {{ $poliBalita->links() }}
+                            {{ $poliEstetikaGigi->links() }}
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    @include('livewire.dashboard.daftar-poli.panggilAntrian')
+    @include('livewire.dasboard.daftar-poli.panggilAntrian')
 </div>

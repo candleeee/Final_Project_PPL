@@ -2,11 +2,8 @@
 
 namespace Database\Seeders;
 
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-
 use App\Models\Role;
 use App\Models\User;
-use App\Models\Antrian;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -18,32 +15,49 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        Role::create([
-            'role'  => 'admin'
-        ]);
-        Role::create([
-            'role'  => 'pasien'
-        ]);
+        // Seed roles
+        Role::updateOrInsert(
+            ['role' => 'admin'],
+            ['created_at' => now(), 'updated_at' => now()]
+        );
 
-        User::create([
-            'name'      => 'Admin',
-            'email'     => 'admin@gmail.com',
-            'password'  => bcrypt('1234'),
-            'role_id'   => 1
-        ]);
+        Role::updateOrInsert(
+            ['role' => 'pasien'],
+            ['created_at' => now(), 'updated_at' => now()]
+        );
 
-        User::create([
-            'name'      => 'Robert Davis Chaniago',
-            'email'     => 'robert@gmail.com',
-            'password'  => bcrypt('1234'),
-            'role_id'   => 2
-        ]);
+        // Seed users
+        User::updateOrInsert(
+            ['email' => 'admin@gmail.com'],
+            [
+                'name'      => 'Admin',
+                'password'  => bcrypt('1234'),
+                'role_id'   => Role::where('role', 'admin')->first()->id,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]
+        );
 
-        User::create([
-            'name'      => 'Mujiyono',
-            'email'     => 'mujiyono@gmail.com',
-            'password'  => bcrypt('1234'),
-            'role_id'   => 2
-        ]);
+        User::updateOrInsert(
+            ['email' => 'robert@gmail.com'],
+            [
+                'name'      => 'Robert Davis Chaniago',
+                'password'  => bcrypt('1234'),
+                'role_id'   => Role::where('role', 'pasien')->first()->id,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]
+        );
+
+        User::updateOrInsert(
+            ['email' => 'mujiyono@gmail.com'],
+            [
+                'name'      => 'Mujiyono',
+                'password'  => bcrypt('1234'),
+                'role_id'   => Role::where('role', 'pasien')->first()->id,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]
+        );
     }
 }

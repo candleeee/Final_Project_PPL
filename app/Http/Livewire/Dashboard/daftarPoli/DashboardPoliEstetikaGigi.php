@@ -6,7 +6,7 @@ use App\Models\Antrian;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-class DashboardPoliKia extends Component
+class DashboardPoliEstetikaGigi extends Component
 {
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
@@ -31,8 +31,8 @@ class DashboardPoliKia extends Component
 
     public function render()
     {
-        return view('livewire.dashboard.daftar-poli.dashboard-poli-kia', [
-            'poliKia' => Antrian::where('poli', 'kia & kb')->where('is_call', 0)->paginate(10)
+        return view('livewire.dasboard.daftar-poli.dashboard-poli-estetikagigi', [
+            'poliEstetikaGigi' => Antrian::where('poli', 'estetikagigi')->where('is_call', 0)->paginate(10)
         ]);
     }
 }

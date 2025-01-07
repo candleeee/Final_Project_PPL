@@ -24,6 +24,7 @@
                                 <th scope="col">Poli</th>
                                 <th scope="col">Tgl Antrian</th>
                                 <th scope="col">Opsi</th>
+                                <th scope="col">Layanan</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -39,6 +40,8 @@
                                     <td>{{ $item->pekerjaan }}</td>
                                     <td>{{ $item->poli }}</td>
                                     <td>{{ $item->tanggal_antrian }}</td>
+                                    <td>{{ $item->layanan }}</td>
+                                    <td>{{ $item->no_bpjs }}</td>
                                     <td>
                                         <a class="btn btn-success" a href="{{ route('cetakAntrian') }}"
                                             target="_blank"><i class="bi bi-printer"></i></a>
@@ -83,13 +86,13 @@
                 <div class="mb-3">
                     <select class="form-select" wire:model="poli">
                         <option value="">Sortir Berdasarkan Poli</option>
-                        <option value="umum">Poli Umum</option>
-                        <option value="gigi">Poli Gigi</option>
-                        <option value="tht">Poli THT</option>
-                        <option value="lansia & disabilitas">Lansia & Disabilitas</option>
-                        <option value="balita">Balita</option>
-                        <option value="kia & kb">KIA & KB</option>
-                        <option value="nifas/pnc">Nifas / PNC</option>
+                        <option value="pengecekan">Poli Pengecekan</option>
+                            <option value="restoratifi">Poli Restoratifi</option>
+                            <option value="endodontik">Poli Endodontik</option>
+                            <option value="periodontal">Poli Periodontal</option>
+                            <option value="prostodonik">Poli Prostodonik</option>
+                            <option value="estetikagigi">Poli Estetika Gigi</option>
+                            <option value="gigi sensitif">Poli Gigi Sensitif</option>
                     </select>
                 </div>
             </div>
@@ -112,6 +115,8 @@
                                 <th scope="col">Pekerjaan</th>
                                 <th scope="col">Poli</th>
                                 <th scope="col">Tgl. Antrian</th>
+                                <th scope="col">Layanan</th>
+                                <th scope="col">no bpjs</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -130,6 +135,8 @@
                                     <td>{{ $item->pekerjaan }}</td>
                                     <td>{{ $item->poli }}</td>
                                     <td>{{ $item->tanggal_antrian }}</td>
+                                    <td>{{ $item->layanan }}</td>
+                                    <td>{{ $item->no_bpjs }}</td>
                                 </tr>
                             @endforeach
                         </tbody>

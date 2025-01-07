@@ -11,7 +11,7 @@ use Livewire\WithPagination;
 
 class ShowAntrian extends Component
 {
-    public $antrian_id, $no_antrian, $nama, $alamat, $jenis_kelamin, $no_hp, $no_ktp, $tgl_lahir, $pekerjaan, $poli, $tanggal_antrian, $user_id, $data;
+    public $antrian_id, $no_antrian, $nama, $alamat, $jenis_kelamin, $no_hp, $no_ktp, $tgl_lahir, $pekerjaan, $poli, $tanggal_antrian, $user_id, $data, $layanan,$no_bpjs ;
 
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
@@ -26,7 +26,12 @@ class ShowAntrian extends Component
         'tgl_lahir'         => 'required',
         'pekerjaan'         => 'required',
         'poli'              => 'required',
-        'tanggal_antrian'   => 'required'
+        'tanggal_antrian'   => 'required',
+        'layanan'           => 'required',
+        'no_bpjs'           => 'required|numeric',
+        
+
+
     ];
 
     public function updated($fields)
@@ -45,22 +50,23 @@ class ShowAntrian extends Component
 
         // Jika tanggal berbeda dengan hari ini, maka reset nomor antrian dari awal
         if (!$latestAntrian) {
-            if ($this->poli === 'umum') {
+            if ($this->poli === 'pengeceka') {
                 $this->no_antrian = 'U1';
-            } elseif ($this->poli === 'gigi') {
+            } elseif ($this->poli === 'restoratifi') {
                 $this->no_antrian = 'G1';
-            } elseif ($this->poli === 'tht') {
+            } elseif ($this->poli === 'restoratifi') {
                 $this->no_antrian = 'T1';
-            } elseif ($this->poli === 'lansia & disabilitas') {
+            } elseif ($this->poli === 'periodontals') {
                 $this->no_antrian = 'L1';
-            } elseif ($this->poli === 'balita') {
+            } elseif ($this->poli === 'prostodonik') {
                 $this->no_antrian = 'B1';
-            } elseif ($this->poli === 'kia & kb') {
+            } elseif ($this->poli === 'estetikagigi') {
                 $this->no_antrian = 'K1';
-            } elseif ($this->poli === 'nifas/pnc') {
+            } elseif ($this->poli === 'gigi sensitif') {
                 $this->no_antrian = 'N1';
             }
             $this->tanggal_antrian = now()->toDateString();
+            
         } else {
             // Jika tanggalnya sama dengan hari ini, maka no antrian akan melakukan increment / pengurutan
             $kode_awal = substr($latestAntrian->no_antrian, 0, 1);
@@ -68,14 +74,22 @@ class ShowAntrian extends Component
             $angka += 1;
             $this->no_antrian = $kode_awal . $angka;
             $this->tanggal_antrian = $latestAntrian->tanggal_antrian;
+
+        if ($this->layanan == 'bpjs' && empty($this->no_bpjs)) {
+            $this->addError('no_bpjs', 'Nomor BPJS harus diisi jika memilih layanan BPJS');
         }
+        }
+
+        
 
 
         $validatedData = $this->validate();
         $validatedData['no_antrian'] = $this->no_antrian;
         $validatedData['tanggal_antrian'] = $this->tanggal_antrian;
         $validatedData['user_id'] = auth()->user()->id;
-
+        $validatedData['poli'] = $this->poli;
+        $validatedData['layanan'] = $this->layanan;
+        
         Antrian::create($validatedData);
         session()->flash('success', 'Berhasil Mengambil Antrian');
         $this->emit('update');
@@ -95,6 +109,8 @@ class ShowAntrian extends Component
         $this->poli = '';
         $this->tgl_lahir = '';
         $this->pekerjaan = '';
+        $this->layanan = '';
+        $this->no_bpjs = '';
     }
 
     public function close_modal()
@@ -116,6 +132,8 @@ class ShowAntrian extends Component
             $this->poli             = $antrian->poli;
             $this->tgl_lahir        = $antrian->tgl_lahir;
             $this->pekerjaan        = $antrian->pekerjaan;
+            $this->layanan          = $antrian->layanan;
+            $this->no_bpjs          = $antrian->no_bpjs;
         } else {
             return redirect()->to('/');
         }
@@ -124,22 +142,22 @@ class ShowAntrian extends Component
     public function updateAntrian()
     {
 
-        if ($this->poli === 'umum') {
+        if ($this->poli === 'pengeceka') {
             $this->no_antrian = 'U1';
-        } elseif ($this->poli === 'gigi') {
+        } elseif ($this->poli === 'restoratifi') {
             $this->no_antrian = 'G1';
-        } elseif ($this->poli === 'tht') {
+        } elseif ($this->poli === 'restoratifi') {
             $this->no_antrian = 'T1';
-        } elseif ($this->poli === 'lansia & disabilitas') {
+        } elseif ($this->poli === 'periodontals') {
             $this->no_antrian = 'L1';
-        } elseif ($this->poli === 'balita') {
+        } elseif ($this->poli === 'prostodonik') {
             $this->no_antrian = 'B1';
-        } elseif ($this->poli === 'kia & kb') {
+        } elseif ($this->poli === 'estetikagigi') {
             $this->no_antrian = 'K1';
-        } elseif ($this->poli === 'nifas/pnc') {
+        } elseif ($this->poli === 'gigi sensitif') {
             $this->no_antrian = 'N1';
         }
-
+        
 
         $latest_no_antrian = Antrian::where('poli', $this->poli)
             ->latest()
@@ -152,6 +170,8 @@ class ShowAntrian extends Component
             $this->no_antrian = $kode_awal . $angka;
         }
 
+        
+        
         $validatedData = $this->validate([
             'no_antrian'    => 'required|unique:antrians',
             'nama'          => 'required',
@@ -162,6 +182,7 @@ class ShowAntrian extends Component
             'poli'          => 'required',
             'tgl_lahir'     => 'required',
             'pekerjaan'     => 'required',
+            'layanan'       => 'required',
         ]);
 
         Antrian::where('id', $this->antrian_id)->update([
@@ -174,6 +195,8 @@ class ShowAntrian extends Component
             'poli'          => $validatedData['poli'],
             'tgl_lahir'     => $validatedData['tgl_lahir'],
             'pekerjaan'     => $validatedData['pekerjaan'],
+            'layanan'       => $validatedData['layanan'],
+            'no_bpjs'       => $validatedData['no_bpjs'],
         ]);
 
         session()->flash('success', 'Berhasil Mengedit Data Antrian Anda');
@@ -181,6 +204,7 @@ class ShowAntrian extends Component
         $this->dispatchBrowserEvent('closeModal');
     }
 
+    
     public function deleteAntrian($antrian_id)
     {
         $this->antrian_id = $antrian_id;
@@ -208,6 +232,8 @@ class ShowAntrian extends Component
             $this->poli             = $antrian->poli;
             $this->tgl_lahir        = $antrian->tgl_lahir;
             $this->pekerjaan        = $antrian->pekerjaan;
+            $this->layanan          = $antrian->layanan;
+            $this->no_bpjs          = $antrian->no_bpjs;
         } else {
             return redirect()->to('/');
         }

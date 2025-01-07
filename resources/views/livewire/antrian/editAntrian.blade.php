@@ -75,17 +75,33 @@
                         <label>Ambil Antrian Untuk Poli</label>
                         <select class="form-select" wire:model="poli" aria-label="Default select example">
                             <option selected>pilih Poli</option>
-                            <option value="umum">Umum</option>
-                            <option value="gigi">Gigi</option>
-                            <option value="tht">THT</option>
-                            <option value="lansia & disabilitas">Lansia & Disabilitas</option>
-                            <option value="balita">Balita</option>
-                            <option value="kia & kb">KIA & KB</option>
-                            <option value="nifas/pnc">Nifas / PNC</option>
+                            <option value="pengecekan">Poli Pengecekan</option>
+                            <option value="restoratifi">Poli Restoratifi</option>
+                            <option value="endodontik">Poli Endodontik</option>
+                            <option value="periodontal">Poli Periodontal</option>
+                            <option value="prostodonik">Poli Prostodonik</option>
+                            <option value="estetikagigi">Poli Estetika Gigi</option>
+                            <option value="gigisensitif">Poli Gigi Sensitif</option>
                         </select>
                         @error('poli')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
+                    </div>
+                    <div class="mb-3">
+                        <label>Jenis Pelayanan</label>
+                        <select class="form-select" wire:model="layanan" aria-label="Default select example">
+                            <option selected>pilih Layanan</option>
+                            <option value="bpjs">BPJS</option>
+                            <option value="umum">UMUM</option>
+                        </select>
+                        @error('layanan')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                    </div>
+                    <div class="mb-3" wire:ignore.self>
+                        <label for="no_bpjs">Nomor BPJS</label>
+                        <input wire:model="no_bpjs" type="text" class="form-control" id="no_bpjs" placeholder="Masukkan nomor BPJS" @if($layanan !== 'bpjs') disabled @endif>
+                        @error('no_bpjs') <span class="text-danger">{{ $message }}</span> @enderror
                     </div>
                 </div>
                 <div class="modal-footer">

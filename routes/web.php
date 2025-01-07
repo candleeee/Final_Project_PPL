@@ -23,23 +23,26 @@ Route::get('/', function () {
     return view('home');
 });
 
+
 Route::resource('antrian', FrontAntrianController::class);
 Route::get('livewire/antrian/cetakAntrian', [FrontAntrianController::class, 'cetakAntrian'])->name('cetakAntrian');
 
+Route::middleware('auth')->get('/dashboard', [DashboardController::class, 'index']);
+Route::get('/laporan/cetak', [DashboardLaporanController::class, 'cetaklaporan'])->name('cetakLaporan');
 
 Auth::routes();
 Route::middleware('auth')->group(function () {
     Route::group(['middleware' => 'CheckRole:admin'], function () {
-        Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('redirectifauthenticated');
+        Route::get('/home', [HomeController::class, 'index'])->middleware('auth');
         Route::get('dashboard', [DashboardController::class, 'index']);
 
-        Route::get('dashboard/antrian/poliUmum', [DashboardAntrianController::class, 'indexPoliUmum']);
-        Route::get('dashboard/antrian/poliGigi', [DashboardAntrianController::class, 'indexPoliGigi']);
-        Route::get('dashboard/antrian/poliTht', [DashboardAntrianController::class, 'indexPoliTht']);
-        Route::get('dashboard/antrian/poliLansia', [DashboardAntrianController::class, 'indexPoliLansia']);
-        Route::get('dashboard/antrian/poliBalita', [DashboardAntrianController::class, 'indexPoliBalita']);
-        Route::get('dashboard/antrian/poliKia', [DashboardAntrianController::class, 'indexPoliKia']);
-        Route::get('dashboard/antrian/poliNifas', [DashboardAntrianController::class, 'indexPoliNifas']);
+        Route::get('dashboard/antrian/poliPencegahan', [DashboardAntrianController::class, 'indexPoliPencegahan']);
+        Route::get('dashboard/antrian/poliRestoratifi', [DashboardAntrianController::class, 'indexPoliRestoratifi']);
+        Route::get('dashboard/antrian/poliEndodontik', [DashboardAntrianController::class, 'indexPoliEndodontik']);
+        Route::get('dashboard/antrian/poliPeriodontal', [DashboardAntrianController::class, 'indexPoliPeriodontal']);
+        Route::get('dashboard/antrian/poliProstodontik', [DashboardAntrianController::class, 'indexPoliProstodontik']);
+        Route::get('dashboard/antrian/poliEstetikaGigi', [DashboardAntrianController::class, 'indexPoliEstetikaGigi']);
+        Route::get('dashboard/antrian/poliGigiSensitif', [DashboardAntrianController::class, 'indexPoliGigiSensitif']);
 
         Route::get('dashboard/laporan/index', [DashboardLaporanController::class, 'index']);
         Route::get('livewire/dashboard/laporan/cetakLaporan', [DashboardLaporanController::class, 'cetakLaporan'])->name('cetakLaporan');

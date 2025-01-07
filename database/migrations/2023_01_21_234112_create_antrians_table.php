@@ -24,11 +24,13 @@ return new class extends Migration
             $table->enum('jenis_kelamin', ['laki-laki', 'perempuan']);
             $table->string('no_hp');
             $table->string('no_ktp');
-            $table->enum('poli', ['umum', 'gigi', 'tht', 'lansia & disabilitas', 'balita', 'kia & kb', 'nifas/pnc']);
+            $table->enum('poli', ['pengecekan', 'restoratifi', 'endodontik', 'periodontal', 'prostodonik', 'estetikagigi', 'gigisensitif']);
             $table->date('tgl_lahir');
             $table->string('pekerjaan');
             $table->boolean('is_call')->default(false);
             $table->date('tanggal_antrian')->default(Carbon::now());
+            $table->enum('layanan', ['bpjs', 'umum']);
+            $table->string('no_bpjs');
             $table->timestamps();
         });
     }

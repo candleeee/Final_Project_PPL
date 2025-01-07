@@ -2,14 +2,14 @@
 
 @section('content')
     <div>
-        <livewire:dashboard.daftar-poli.dashboard-poli-nifas>
+        <livewire:dashboard.daftar-poli.dashboard-poli-prostodontik>
     </div>
 @endsection
 
 @section('script')
     <script>
         window.addEventListener('closeModal', event => {
-            $('#panggilAntrian').modal('hide')
-        })
+            $('#panggilAntrian').modal('hide');
+        });
     </script>
 @endsection
