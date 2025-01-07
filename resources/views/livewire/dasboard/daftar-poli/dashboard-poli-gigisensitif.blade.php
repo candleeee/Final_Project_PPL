@@ -26,7 +26,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($poliBalita as $list)
+                                    @foreach ($poliGigiSensitif as $list)
                                         <tr style="text-align: center">
                                             <td>{{ $list->no_antrian }}</td>
                                             <td>{{ $list->nama }}</td>
@@ -51,5 +51,5 @@
             </div>
         </div>
     </div>
-    @include('livewire.dashboard.daftar-poli.panggilAntrian')
+    @include('livewire.dasboard.daftar-poli.panggilAntrian')
 </div>

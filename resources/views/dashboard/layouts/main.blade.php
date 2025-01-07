@@ -117,12 +117,12 @@
             </a>
             <ul id="components-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
                 <li><a href="/dashboard/antrian/poliPencegahan"><i class="bi bi-circle"></i><span>Poli Pencegahan</span></a></li>
-                <li><a href="/dashboard/antrian/poliGigi"><i class="bi bi-circle"></i><span>Poli Restoratifi</span></a></li>
-                <li><a href="/dashboard/antrian/poliTht"><i class="bi bi-circle"></i><span>Poli Endodontik </span></a></li>
-                <li><a href="/dashboard/antrian/poliLansia"><i class="bi bi-circle"></i><span>Poli Periodontal </span></a></li>
-                <li><a href="/dashboard/antrian/poliBalita"><i class="bi bi-circle"></i><span>Poli Prostodonik</span></a></li>
-                <li><a href="/dashboard/antrian/poliKia"><i class="bi bi-circle"></i><span>Poli Estetika Gigi</span></a></li>
-                <li><a href="/dashboard/antrian/poliNifas"><i class="bi bi-circle"></i><span>Poli Gigi Sensitif</span></a></li>
+                <li><a href="/dashboard/antrian/poliRestoratifi"><i class="bi bi-circle"></i><span>Poli Restoratifi</span></a></li>
+                <li><a href="/dashboard/antrian/poliEndodontik"><i class="bi bi-circle"></i><span>Poli Endodontik </span></a></li>
+                <li><a href="/dashboard/antrian/poliPeriodontal"><i class="bi bi-circle"></i><span>Poli Periodontal </span></a></li>
+                <li><a href="/dashboard/antrian/poliProstodontik"><i class="bi bi-circle"></i><span>Poli Prostodonik</span></a></li>
+                <li><a href="/dashboard/antrian/poliEstetikaGigi"><i class="bi bi-circle"></i><span>Poli Estetika Gigi</span></a></li>
+                <li><a href="/dashboard/antrian/poliGigiSensitif"><i class="bi bi-circle"></i><span>Poli Gigi Sensitif</span></a></li>
             </ul>
         </li><!-- End Components Nav -->
 

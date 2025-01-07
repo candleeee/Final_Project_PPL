@@ -8,7 +8,7 @@ class DashboardAntrianController extends Controller
 {
     public function indexPoliPencegahan()
     {
-        return view('dashboard.antrian.poliPencegahan');
+        return view('dashboard.antrian.polipencegahan');
     }
 
     public function indexPoliRestoratifi()

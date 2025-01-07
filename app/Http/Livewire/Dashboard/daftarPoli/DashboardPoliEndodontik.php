@@ -31,8 +31,10 @@ class DashboardPoliEndodontik extends Component
 
     public function render()
     {
-        return view('livewire.dashboard.daftar-poli.dashboard-poli-endodontik', [
-            'poliEndodontik' => Antrian::where('poli', 'endodontik')->where('is_call', 0)->paginate(10)
-        ]);
+        $poliEndodontik = Antrian::where('poli', 'endodontik')
+                                  ->where('is_call', 0)
+                                  ->paginate(10);
+
+        return view('livewire.dasboard.daftar-poli.dashboard-poli-endodontik', compact('poliEndodontik'));
     }
 }

@@ -26,7 +26,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($poliBalita as $list)
+                                    @foreach ($poliProstodontik as $list)
                                         <tr style="text-align: center">
                                             <td>{{ $list->no_antrian }}</td>
                                             <td>{{ $list->nama }}</td>
@@ -44,12 +44,12 @@
                                     @endforeach
                                 </tbody>
                             </table>
-                            {{ $poliProstodonik->links() }}
+                            {{ $poliProstodontik->links() }}
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    @include('livewire.dashboard.daftar-poli.panggilAntrian')
+    @include('livewire.dasboard.daftar-poli.panggilAntrian')
 </div>

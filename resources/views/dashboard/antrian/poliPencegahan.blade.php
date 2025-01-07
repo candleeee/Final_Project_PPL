@@ -9,7 +9,7 @@
 @section('script')
     <script>
         window.addEventListener('closeModal', event => {
-            $('#panggilAntrian').modal('hide')
-        })
+            $('#panggilAntrian').modal('hide');
+        });
     </script>
 @endsection

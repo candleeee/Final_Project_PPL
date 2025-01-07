@@ -31,7 +31,7 @@ class DashboardPoliProstodontik extends Component
 
     public function render()
     {
-        return view('livewire.dashboard.daftar-poli.dashboard-poli-prostodontik', [
+        return view('livewire.dasboard.daftar-poli.dashboard-poli-prostodontik', [
             'poliProstodontik' => Antrian::where('poli', 'prostodontik')->where('is_call', 0)->paginate(10)
         ]);
     }

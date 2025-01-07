@@ -16,7 +16,7 @@ class ShowLaporan extends Component
 
 
     public function render()
-    {   
+    {
         if($this->tanggal_antrian == "today"){
             $laporan = Antrian::where('tanggal_antrian', Carbon::now()->toDateString())->where('is_call', 1)->paginate(10);
         }else if ($this->tanggal_antrian == "week") {
@@ -30,8 +30,8 @@ class ShowLaporan extends Component
         }else {
             $laporan = Antrian::where('is_call', 1)->paginate(10);
         }
-        
-        return view('livewire.dashboard.laporan.show-laporan', compact('laporan'));
+
+        return view('livewire.dasboard.laporan.show-laporan', compact('laporan'));
     }
 
 }
