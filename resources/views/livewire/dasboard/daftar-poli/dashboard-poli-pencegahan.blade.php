@@ -27,6 +27,7 @@
                                         <th scope="col">Nomor KTP</th>
                                         <th scope="col">Layanan</th>
                                         <th scope="col">Panggil</th>
+                                        <th scope="col">NO BPJS</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -39,6 +40,7 @@
                                         <td>{{ $list->no_hp }}</td>
                                         <td>{{ $list->no_ktp }}</td>
                                         <td>{{ $list->layanan }}</td>
+                                        <td>{{ $list->no_bpjs }}</td>
                                         <td>
                                             <button class="btn btn-success" wire:click="panggilAntrian({{ $list->id }})"
                                                 data-bs-toggle="modal" data-bs-target="#panggilAntrianModal">

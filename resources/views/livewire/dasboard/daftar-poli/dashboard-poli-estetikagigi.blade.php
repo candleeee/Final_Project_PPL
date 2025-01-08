@@ -24,6 +24,7 @@
                                         <th scope="col">Nomor KTP</th>
                                         <th scope="col">Layanan</th>
                                         <th scope="col">Panggil</th>
+                                        <th scope="col">NO BPJS</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -36,6 +37,7 @@
                                             <td>{{ $list->no_hp }}</td>
                                             <td>{{ $list->no_ktp }}</td>
                                             <td>{{ $list->layanan }}</td>
+                                            <td>{{ $list->no_bpjs }}</td>
                                             <td>
                                                 <a class="btn btn-success"
                                                     wire:click="panggilAntrian({{ $list->id }})" role="button"
@@ -55,3 +57,20 @@
     </div>
     @include('livewire.dasboard.daftar-poli.panggilAntrian')
 </div>
+@if (session()->has('success'))
+    <div class="alert alert-success alert-dismissible fade show" role="alert"> {{ session('success') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+@endif
+
+@if (session()->has('error'))
+    <div class="alert alert-danger alert-dismissible fade show" role="alert"> {{ session('error') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+@endif
+
+@if (session()->has('info'))
+    <div class="alert alert-info alert-dismissible fade show" role="alert"> {{ session('info') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+@endif

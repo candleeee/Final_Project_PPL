@@ -26,6 +26,8 @@
                 <th>Pekerjaan</th>
                 <th>Poli</th>
                 <th>Tgl. Antrian</th>
+                <th>Layanan</th>
+                <th>No BPJS</th>
             </tr>
         </thead>
         <tbody>
@@ -41,6 +43,8 @@
                     <td>{{ $list->pekerjaan }}</td>
                     <td>{{ $list->poli }}</td>
                     <td>{{ $list->tanggal_antrian }}</td>
+                    <td>{{ $list->layanan }}</td>
+                    <td>{{ $list->no_bpjs }}</td>
                 </tr>
             @endforeach
         </tbody>

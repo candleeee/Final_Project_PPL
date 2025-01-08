@@ -64,6 +64,7 @@
                                         <th scope="col">Pekerjaan</th>
                                         <th scope="col">Poli</th>
                                         <th scope="col">Tgl. Antrian</th>
+                                        <th scope="col">Layanan</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -79,6 +80,7 @@
                                             <td>{{ $list->pekerjaan }}</td>
                                             <td>{{ $list->poli }}</td>
                                             <td>{{ $list->tanggal_antrian }}</td>
+                                            <td>{{ $list->layanan }}</td>
                                         </tr>
                                     @empty
                                         <tr>
