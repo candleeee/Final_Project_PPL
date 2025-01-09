@@ -9,7 +9,8 @@ class Antrian extends Model
 {
     use HasFactory;
     // protected $guarded = ['id'];
-    protected $fillable = ['no_antrian', 'nama', 'alamat', 'jenis_kelamin', 'no_hp', 'no_ktp', 'tgl_lahir', 'pekerjaan', 'poli', 'is_call', 'tanggal_antrian', 'user_id'];
+    protected $fillable = ['no_antrian', 'nama', 'alamat', 'jenis_kelamin', 'no_hp', 'no_ktp', 'tgl_lahir', 'pekerjaan', 'poli', 'is_call', 'tanggal_antrian', 'user_id', 'layanan',
+    'no_bpjs',];
 
     public function user()
     {
