@@ -42,6 +42,14 @@ class ShowAntrian extends Component
 
     public function save()
     {
+    //     $this->validate();
+
+    // // Validasi khusus untuk layanan BPJS
+    // if ($this->layanan == 'bpjs' && empty($this->no_bpjs)) {
+    //     $this->addError('no_bpjs', 'Nomor BPJS harus diisi jika memilih layanan BPJS');
+    //     return; // Hentikan proses jika validasi gagal
+    // }
+
         // Mengambil data antrian terbaru berdasarkan poli yang di pilih
         $latestAntrian = Antrian::where('poli', $this->poli)
             ->where('tanggal_antrian', now()->toDateString())
@@ -50,11 +58,11 @@ class ShowAntrian extends Component
 
         // Jika tanggal berbeda dengan hari ini, maka reset nomor antrian dari awal
         if (!$latestAntrian) {
-            if ($this->poli === 'pengeceka') {
+            if ($this->poli === 'pengecekan') {
                 $this->no_antrian = 'U1';
             } elseif ($this->poli === 'restoratifi') {
                 $this->no_antrian = 'G1';
-            } elseif ($this->poli === 'restoratifi') {
+            } elseif ($this->poli === 'endodontik') {
                 $this->no_antrian = 'T1';
             } elseif ($this->poli === 'periodontals') {
                 $this->no_antrian = 'L1';
@@ -62,7 +70,7 @@ class ShowAntrian extends Component
                 $this->no_antrian = 'B1';
             } elseif ($this->poli === 'estetikagigi') {
                 $this->no_antrian = 'K1';
-            } elseif ($this->poli === 'gigi sensitif') {
+            } elseif ($this->poli === 'gigisensitif') {
                 $this->no_antrian = 'N1';
             }
             $this->tanggal_antrian = now()->toDateString();
@@ -75,15 +83,16 @@ class ShowAntrian extends Component
             $this->no_antrian = $kode_awal . $angka;
             $this->tanggal_antrian = $latestAntrian->tanggal_antrian;
 
-        if ($this->layanan == 'bpjs' && empty($this->no_bpjs)) {
-            $this->addError('no_bpjs', 'Nomor BPJS harus diisi jika memilih layanan BPJS');
+      
         }
-        }
-
-        
-
 
         $validatedData = $this->validate();
+
+        if ($this->layanan == 'bpjs' && empty($this->no_bpjs)) {
+            $this->addError('no_bpjs', 'Nomor BPJS harus diisi jika memilih layanan BPJS');
+            return; // Hentikan proses jika validasi gagal
+        }
+
         $validatedData['no_antrian'] = $this->no_antrian;
         $validatedData['tanggal_antrian'] = $this->tanggal_antrian;
         $validatedData['user_id'] = auth()->user()->id;
@@ -95,6 +104,7 @@ class ShowAntrian extends Component
         $this->emit('update');
         $this->resetInput();
         $this->dispatchBrowserEvent('closeModal');
+        
     }
 
 
@@ -142,11 +152,11 @@ class ShowAntrian extends Component
     public function updateAntrian()
     {
 
-        if ($this->poli === 'pengeceka') {
+        if ($this->poli === 'pengecekan') {
             $this->no_antrian = 'U1';
         } elseif ($this->poli === 'restoratifi') {
             $this->no_antrian = 'G1';
-        } elseif ($this->poli === 'restoratifi') {
+        } elseif ($this->poli === 'endodontik') {
             $this->no_antrian = 'T1';
         } elseif ($this->poli === 'periodontals') {
             $this->no_antrian = 'L1';
@@ -154,7 +164,7 @@ class ShowAntrian extends Component
             $this->no_antrian = 'B1';
         } elseif ($this->poli === 'estetikagigi') {
             $this->no_antrian = 'K1';
-        } elseif ($this->poli === 'gigi sensitif') {
+        } elseif ($this->poli === 'gigisensitif') {
             $this->no_antrian = 'N1';
         }
         
